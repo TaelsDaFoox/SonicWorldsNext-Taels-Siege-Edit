@@ -17,6 +17,8 @@ func _ready():
 
 # Jump actions
 func _process(_delta):
+	if parent.playerControl != 0 and parent.character==Global.CHARACTERS.MSONIC and parent.inputs[parent.INPUTS.ACTION2] == 1 and parent.lightSpeedArea.get_overlapping_areas():
+		parent.set_state(parent.STATES.LIGHTSPEED)
 	if parent.playerControl != 0 and parent.any_action_pressed() and parent.character == Global.CHARACTERS.MIGHTY:
 		parent.horizontalSensor.force_raycast_update()
 		if parent.horizontalSensor.is_colliding() and !parent.ground:
@@ -156,9 +158,6 @@ func _process(_delta):
 									parent.shieldSprite.stop()
 								# disable insta shield
 								parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled = true
-					Global.CHARACTERS.MSONIC:
-						if parent.inputs[parent.INPUTS.ACTION2] == 1 and parent.lightSpeedArea.get_overlapping_areas():
-							parent.set_state(parent.STATES.LIGHTSPEED)
 
 
 func _physics_process(delta):
