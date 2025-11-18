@@ -1551,6 +1551,8 @@ frame_progress = 0.400739
 offset = Vector2(-16, -8)
 
 [node name="LightspeedDashArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8388608
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightspeedDashArea"]
 shape = SubResource("CircleShape2D_my80a")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dggjdwwkl527b"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/Ring.gd" id="1"]
+[ext_resource type="Script" uid="uid://cyduak3s2438s" path="res://Scripts/Objects/Ring.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cpcs473co21gu" path="res://Graphics/Items/Rings/Ring3.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://csoc5oj6qsv2n" path="res://Graphics/Items/Rings/Ring1.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://blq8n7iy1j0jh" path="res://Graphics/Items/Rings/Ring2.png" id="4"]
@@ -40,7 +40,7 @@ sprite_frames = SubResource("2")
 autoplay = "default"
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 8388608
 collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]

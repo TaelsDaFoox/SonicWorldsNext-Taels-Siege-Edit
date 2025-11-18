@@ -4,15 +4,10 @@ func state_activated():
 	pass
 
 func _process(_delta):
-	# jumping off
-	if !parent.any_action_held():
-		#parent.movement = Vector2(-4*60*parent.direction,-4*60)
-		parent.movement.y = -20*60
-		if parent.direction == parent.inputs[parent.INPUTS.XINPUT]:
-			parent.movement.x = 0
-		else:
-			parent.direction *= -1
-			parent.movement.x = 8*60*parent.direction
-		parent.animator.play("roll")
-		parent.animator.advance(0)
+	var lightspeedthings = parent.lightSpeedArea.get_overlapping_areas()
+	if lightspeedthings:
+		var shmovedist = lightspeedthings[0].global_position-parent.global_position
+		shmovedist /= shmovedist.length()
+		parent.movement=(shmovedist*1000.0)
+	else:
 		parent.set_state(parent.STATES.JUMP)

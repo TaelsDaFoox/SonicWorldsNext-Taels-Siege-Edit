@@ -156,7 +156,8 @@ func _process(_delta):
 									parent.shieldSprite.stop()
 								# disable insta shield
 								parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled = true
-						
+					Global.CHARACTERS.MSONIC:
+						parent.set_state(parent.STATES.LIGHTSPEED)
 
 
 func _physics_process(delta):
