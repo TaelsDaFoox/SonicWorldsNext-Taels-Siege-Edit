@@ -157,7 +157,8 @@ func _process(_delta):
 								# disable insta shield
 								parent.shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled = true
 					Global.CHARACTERS.MSONIC:
-						parent.set_state(parent.STATES.LIGHTSPEED)
+						if parent.inputs[parent.INPUTS.ACTION2] == 1 and parent.lightSpeedArea.get_overlapping_areas():
+							parent.set_state(parent.STATES.LIGHTSPEED)
 
 
 func _physics_process(delta):
@@ -215,7 +216,7 @@ func _physics_process(delta):
 		if !bounce():
 			# reset animations (this is for shared animations like the corkscrews)
 			parent.animator.play("RESET")
-			# return to normal state
+			# return to normal slighttate
 			parent.set_state(parent.STATES.NORMAL)
 			
 			# Drop dash release (for sonic / amy)
