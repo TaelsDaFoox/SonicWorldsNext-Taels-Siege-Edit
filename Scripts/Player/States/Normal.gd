@@ -26,8 +26,14 @@ var playerIdles = [
 ["idle1","idle2","idle2","idle2","idle2","idle3",
 "idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
 "idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
+"idle5"],
+# Modern Sonic
+["idle1","idle2","idle2","idle2","idle2","idle3",
+"idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
+"idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
 "idle5"]
 ]
+
 
 func state_exit():
 	skid = false

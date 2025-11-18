@@ -1,7 +1,7 @@
 [gd_scene load_steps=66 format=3 uid="uid://bt2h7lkoq5yko"]
 
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_qmjny"]
-[ext_resource type="Texture2D" uid="uid://4lhg0ovh1pe8" path="res://Graphics/Players/Sonic.png" id="2_uxfea"]
+[ext_resource type="Texture2D" uid="uid://056bnj22t6cn" path="res://Graphics/Players/ModernSonic.png" id="2_qmjny"]
 [ext_resource type="Texture2D" uid="uid://dlomjk6vm15ep" path="res://Graphics/Misc/DashDust.png" id="3_i517d"]
 [ext_resource type="Texture2D" uid="uid://dvqglf8dididc" path="res://Graphics/Items/shield_plain.png" id="4_5h66a"]
 
@@ -1254,14 +1254,14 @@ _data = {
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_36uej")
+&"": SubResource("AnimationLibrary_36uej")
 }
 autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
 material = ExtResource("1_qmjny")
-texture = ExtResource("2_uxfea")
+texture = ExtResource("2_qmjny")
 offset = Vector2(0, -5)
 hframes = 16
 vframes = 18
@@ -1280,7 +1280,7 @@ disabled = true
 
 [node name="SuperPalette" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yhl61")
+&"": SubResource("AnimationLibrary_yhl61")
 }
 
 [node name="CenterReference" type="Sprite2D" parent="."]
