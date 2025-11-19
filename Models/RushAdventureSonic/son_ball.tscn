@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuq0q5va7nwpn"]
+
+[ext_resource type="PackedScene" uid="uid://dtud8jq8av1ga" path="res://Models/RushAdventureSonic/son_ball.glb" id="1_x5mla"]
+[ext_resource type="Material" uid="uid://b4brs6ak1ac8a" path="res://Models/RushAdventureSonic/son_ball_billboard.tres" id="2_6dxkr"]
+
+[node name="son_ball2" instance=ExtResource("1_x5mla")]
+
+[node name="son_ball" parent="son_ball/Skeleton3D" index="0"]
+surface_material_override/2 = ExtResource("2_6dxkr")
+surface_material_override/3 = ExtResource("2_6dxkr")

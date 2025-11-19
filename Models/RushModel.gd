@@ -1,11 +1,22 @@
-extends Node3D
-@onready var anim = $AnimationPlayer
-@onready var playeranim = $"../../PlayerAnimation"
-@onready var player = $"../..".get_parent()
-var animfrom = ["sn_run","sn_boost","sn_ball","sn_springjump","sn_damage_miss","sn_stumble_run","undefined"]
-var animto = ["walk","run","roll","spring","hurt","edge1"]
+extends Node
+@onready var anim = $Model/AnimationPlayer
+@onready var playeranim = $"../PlayerAnimation"
+@onready var player = $"..".get_parent()
+@onready var model = $Model
+@onready var ball = $ModelBall
+@onready var ballanim = $ModelBall/AnimationPlayer
+var animfrom = ["son_fw","son_walk2","son_walk5","son_walk6","com_dmg_b","com_squat","com_brake1_02","com_jump_s_01", "undefined"]
+var animto = ["idle","walk","run","peelOut","hurt","crouch","skid","spring"]
+var spinanims = ["roll","spinDash"]
 func _process(delta: float) -> void:
 	var animCheck = animfrom[animto.find(playeranim.current_animation)]
 	if anim.has_animation(animCheck):
-		anim.play(animCheck,0.2,playeranim.get_playing_speed()*2.0)
-	rotation.y=lerp_angle(rotation.y,player.direction*(PI/2),delta*10)
+		anim.play(animCheck,0.2,playeranim.get_playing_speed())
+		model.visible=true
+		ball.visible=false
+	elif  spinanims.has(playeranim.current_animation):
+		ballanim.play("son_screw",-1.0,playeranim.get_playing_speed())
+		ball.visible=true
+		model.visible=false
+	model.rotation.y=lerp_angle(model.rotation.y,player.direction*(PI/2),delta*10)
+	ball.rotation.y=model.rotation.y

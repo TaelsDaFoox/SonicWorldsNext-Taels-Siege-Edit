@@ -1,11 +1,12 @@
-[gd_scene load_steps=73 format=3 uid="uid://bt2h7lkoq5yko"]
+[gd_scene load_steps=74 format=3 uid="uid://bt2h7lkoq5yko"]
 
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_qmjny"]
-[ext_resource type="Texture2D" uid="uid://056bnj22t6cn" path="res://Graphics/Players/ModernSonic.png" id="2_qmjny"]
+[ext_resource type="Texture2D" uid="uid://bjg05dq2kbi3a" path="res://Graphics/Players/empty.png" id="2_5h66a"]
 [ext_resource type="Texture2D" uid="uid://dlomjk6vm15ep" path="res://Graphics/Misc/DashDust.png" id="3_i517d"]
 [ext_resource type="Texture2D" uid="uid://dvqglf8dididc" path="res://Graphics/Items/shield_plain.png" id="4_5h66a"]
-[ext_resource type="PackedScene" uid="uid://sor0lbu2nnou" path="res://Models/swnRunnersAdv.glb" id="5_uxfea"]
+[ext_resource type="PackedScene" uid="uid://c13yv6dqytwuq" path="res://Models/RushAdventureSonic/son.glb" id="6_5h66a"]
 [ext_resource type="Script" uid="uid://7tit0i3g8olo" path="res://Models/RushModel.gd" id="6_i517d"]
+[ext_resource type="PackedScene" uid="uid://cuq0q5va7nwpn" path="res://Models/RushAdventureSonic/son_ball.tscn" id="7_5h66a"]
 
 [sub_resource type="Animation" id="86"]
 length = 0.001
@@ -1308,16 +1309,14 @@ z_index = 5
 texture = SubResource("ViewportTexture_uxfea")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 z_index = 5
 material = ExtResource("1_qmjny")
-texture = ExtResource("2_qmjny")
+texture = ExtResource("2_5h66a")
 offset = Vector2(0, -5)
 hframes = 16
 vframes = 18
 
 [node name="DashDust" type="AnimatedSprite2D" parent="Sprite2D"]
-visible = false
 sprite_frames = SubResource("96")
 autoplay = "default"
 frame = 3
@@ -1342,10 +1341,13 @@ hframes = 4
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(48, 48)
+script = ExtResource("6_i517d")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4796313, 2.2973788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486, 2.297)
+projection = 1
 fov = 28.327028
+size = 1.2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
 environment = SubResource("Environment_uxfea")
@@ -1353,6 +1355,8 @@ environment = SubResource("Environment_uxfea")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.36667985, 0.93034726, 0, -0.93034726, 0.36667985, 0, 0, 0)
 
-[node name="Model" parent="SubViewport" instance=ExtResource("5_uxfea")]
-transform = Transform3D(0.335, 0, 0, 0, 0.335, 0, 0, 0, 0.335, 0, 0, -0.05036135)
-script = ExtResource("6_i517d")
+[node name="Model" parent="SubViewport" instance=ExtResource("6_5h66a")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)
+
+[node name="ModelBall" parent="SubViewport" instance=ExtResource("7_5h66a")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)
