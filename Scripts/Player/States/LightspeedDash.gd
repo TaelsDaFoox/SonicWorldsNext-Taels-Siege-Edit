@@ -10,6 +10,7 @@ func _process(_delta):
 	if lightspeedthings:
 		parent.sprite.rotation = parent.global_position.angle_to_point(lightspeedthings[0].global_position)
 		var shmovedist: Vector2 = lightspeedthings[0].global_position-parent.global_position
+		#abs(angle_difference(parent.global_position.angle_to_point(lightspeedthings[0].global_position),(parent.global_position.angle_to_point(lightspeedthings[1].global_position))))<PI/2
 		if lightspeedthings.size()>1:
 			parent.sprite.rotation = parent.global_position.angle_to_point(lightspeedthings[1].global_position)
 			#prevVel = shmovedist/shmovedist.length()*-1000.0
