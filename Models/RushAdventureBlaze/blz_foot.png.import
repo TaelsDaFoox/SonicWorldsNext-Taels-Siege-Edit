@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duqq50wtvk7m"
-path="res://.godot/imported/SS03.png-7c0e8ebf9be6f6b0b3bc40b6b01a82ac.ctex"
+uid="uid://cla70snj3uxtf"
+path="res://.godot/imported/blz_foot.png-2793438e2dd5885183c04f4addf01fba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/RushAdventureSonic/SS03.png"
-dest_files=["res://.godot/imported/SS03.png-7c0e8ebf9be6f6b0b3bc40b6b01a82ac.ctex"]
+source_file="res://Models/RushAdventureBlaze/blz_foot.png"
+dest_files=["res://.godot/imported/blz_foot.png-2793438e2dd5885183c04f4addf01fba.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

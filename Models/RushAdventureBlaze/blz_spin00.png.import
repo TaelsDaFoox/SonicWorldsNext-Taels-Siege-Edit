@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duqq50wtvk7m"
-path="res://.godot/imported/SS03.png-7c0e8ebf9be6f6b0b3bc40b6b01a82ac.ctex"
+uid="uid://bq2w4twd57wth"
+path="res://.godot/imported/blz_spin00.png-d6fd3b68c1308555ada7808ebcf7c447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/RushAdventureSonic/SS03.png"
-dest_files=["res://.godot/imported/SS03.png-7c0e8ebf9be6f6b0b3bc40b6b01a82ac.ctex"]
+source_file="res://Models/RushAdventureBlaze/blz_spin00.png"
+dest_files=["res://.godot/imported/blz_spin00.png-d6fd3b68c1308555ada7808ebcf7c447.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

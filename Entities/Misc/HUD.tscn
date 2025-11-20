@@ -693,7 +693,7 @@ grow_vertical = 0
 material = ExtResource("2_xy7bp")
 texture = ExtResource("2_cfvjc")
 centered = false
-vframes = 7
+vframes = 8
 
 [node name="LifeText" type="Label" parent="LifeCounter/Icon"]
 offset_left = 32.0
@@ -702,6 +702,7 @@ offset_right = 32.0
 offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("3_eauoj")
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Counters" type="Control" parent="."]
 layout_mode = 3
@@ -856,7 +857,7 @@ anchor_top = 0.003
 anchor_right = 1.0
 anchor_bottom = 0.003
 offset_top = -12.352001
-offset_right = 4768.0
+offset_right = 4800.0
 offset_bottom = 243.648
 grow_horizontal = 0
 grow_vertical = 2

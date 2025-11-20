@@ -33,6 +33,8 @@ var playerIdles = [
 "idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
 "idle5"],
 # Rush Sonic
+["idle1"],
+# Rush Blaze
 ["idle1"]
 ]
 

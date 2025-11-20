@@ -6,11 +6,11 @@ extends Node2D
 var selected = false
 
 # character labels, the amount of labels in here determines the total amount of options, see the set character option at the end for settings
-var characterLabels = ["Sonic and Tails", "Sonic", "Tails", "Knuckles", "Amy", "Knuckles and Knuckles", "Tails and Sonic", "Mighty", "Modern Sonic", "Rush Sonic"]
+var characterLabels = ["Sonic and Tails", "Sonic", "Tails", "Knuckles", "Amy", "Knuckles and Knuckles", "Tails and Sonic", "Mighty", "Modern Sonic", "Rush Sonic", "Rush Blaze"]
 # level labels, the amount of labels in here determines the total amount of options, see set level option at the end for settings
 var levelLabels = ["Base Zone Act 1", "Base Zone Act 2","secret 3rd option"]#, "Chunk Zone Act 1"]
 # character id lines up with characterLabels
-enum CHARACTER_ID { SONIC_AND_TAILS, SONIC, TAILS, KNUCKLES, AMY, KNUX_AND_KNUX, TAILS_AND_SONIC, MIGHTY, MSONIC, RUSHSONIC}
+enum CHARACTER_ID { SONIC_AND_TAILS, SONIC, TAILS, KNUCKLES, AMY, KNUX_AND_KNUX, TAILS_AND_SONIC, MIGHTY, MSONIC, RUSHSONIC, RUSHBLAZE}
 var characterID = CHARACTER_ID.SONIC_AND_TAILS
 # level id lines up with levelLabels
 var levelID = 0
@@ -93,6 +93,8 @@ func _input(event):
 					Global.PlayerChar1 = Global.CHARACTERS.MSONIC
 				CHARACTER_ID.RUSHSONIC:
 					Global.PlayerChar1 = Global.CHARACTERS.RUSHSONIC
+				CHARACTER_ID.RUSHBLAZE:
+					Global.PlayerChar1 = Global.CHARACTERS.RUSHBLAZE
 					
 			# set the level
 			match(levelID):
