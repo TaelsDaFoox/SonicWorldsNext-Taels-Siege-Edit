@@ -5,8 +5,8 @@ extends Node
 @onready var model = $Model
 @onready var ball = $ModelBall
 @onready var ballanim = $ModelBall/AnimationPlayer
-var animfrom = ["son_fw","son_walk2","son_walk5","son_walk6","com_dmg_b","com_squat","com_brake1_02","com_jump_s_01", "undefined"]
-var animto = ["idle","walk","run","peelOut","hurt","crouch","skid","spring"]
+var animfrom = ["son_fw","son_walk2","son_walk5","son_walk6","com_dmg_b","com_squat","com_brake1_02","com_jump_s_01","com_wall_02","com_die_02", "undefined"]
+var animto = ["idle","walk","run","peelOut","hurt","crouch","skid","spring","push","die"]
 var spinanims = ["roll","spinDash"]
 func _process(delta: float) -> void:
 	var animCheck = animfrom[animto.find(playeranim.current_animation)]

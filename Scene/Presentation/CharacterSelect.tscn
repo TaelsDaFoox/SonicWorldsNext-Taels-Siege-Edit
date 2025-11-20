@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4e1wv2sxs1gm"]
+[gd_scene load_steps=19 format=3 uid="uid://c4e1wv2sxs1gm"]
 
 [ext_resource type="Texture2D" uid="uid://4lhg0ovh1pe8" path="res://Graphics/Players/Sonic.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bemwlrblbgn23" path="res://Graphics/Backgrounds/WorldsBackground.png" id="2"]
@@ -7,8 +7,23 @@
 [ext_resource type="Script" uid="uid://bjhjj0lsk60r3" path="res://Scripts/Level/CharacterSelect.gd" id="5"]
 [ext_resource type="Texture2D" uid="uid://bfesqgvh63scg" path="res://Graphics/Players/Amy.png" id="6_nah0p"]
 [ext_resource type="Texture2D" uid="uid://cndrds5482vh5" path="res://Graphics/Players/Knuckles.png" id="7"]
+[ext_resource type="PackedScene" uid="uid://c13yv6dqytwuq" path="res://Models/RushAdventureSonic/son.glb" id="7_o4h8t"]
+[ext_resource type="Script" uid="uid://dn8330i0mpd5h" path="res://Models/RushAdventureSonic/RushSonicCSS.gd" id="8_8m3l8"]
 [ext_resource type="Texture2D" uid="uid://dhygmoxun35w1" path="res://Graphics/Fonts/arrows_small_font.png" id="9"]
 [ext_resource type="AudioStream" uid="uid://dh4rsaka62ph4" path="res://Audio/SFX/Gimmicks/Switch.wav" id="9_5f42f"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4y0c3"]
+viewport_path = NodePath("UI/Labels/CharacterOrigin/MSonic/SubViewport")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hw68m"]
+
+[sub_resource type="Sky" id="Sky_5h66a"]
+sky_material = SubResource("ProceduralSkyMaterial_hw68m")
+
+[sub_resource type="Environment" id="Environment_fphyq"]
+sky = SubResource("Sky_5h66a")
+ambient_light_source = 2
+ambient_light_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Animate"
@@ -238,9 +253,11 @@ stretch_mode = 1
 
 [node name="Labels" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -160.0
+offset_right = 160.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -363,10 +380,28 @@ region_rect = Rect2(731, 9, 24, 39)
 [node name="MSonic" type="Sprite2D" parent="UI/Labels/CharacterOrigin"]
 visible = false
 z_index = 3
-position = Vector2(-1, 0)
-texture = ExtResource("1")
-region_enabled = true
+texture = SubResource("ViewportTexture_4y0c3")
 region_rect = Rect2(731, 9, 24, 39)
+
+[node name="SubViewport" type="SubViewport" parent="UI/Labels/CharacterOrigin/MSonic"]
+transparent_bg = true
+size = Vector2i(48, 48)
+
+[node name="Camera3D" type="Camera3D" parent="UI/Labels/CharacterOrigin/MSonic/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486, 2.297)
+projection = 1
+fov = 28.327028
+size = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="UI/Labels/CharacterOrigin/MSonic/SubViewport"]
+environment = SubResource("Environment_fphyq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UI/Labels/CharacterOrigin/MSonic/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.36667985, 0.93034726, 0, -0.93034726, 0.36667985, 0, 0, 0)
+
+[node name="Model" parent="UI/Labels/CharacterOrigin/MSonic/SubViewport" instance=ExtResource("7_o4h8t")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)
+script = ExtResource("8_8m3l8")
 
 [node name="CharacterAnimations" type="AnimationPlayer" parent="UI/Labels/CharacterOrigin"]
 libraries = {
