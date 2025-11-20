@@ -5,6 +5,7 @@ const HITBOXESKNUCKLES = {NORMAL = Vector2(9,19)*2, ROLL = Vector2(7,14)*2, CROU
 const HITBOXESAMY = {NORMAL = Vector2(9,15)*2, ROLL = Vector2(7,11)*2, CROUCH = Vector2(9,9.5)*2, GLIDE = Vector2(10,10)*2, HORIZONTAL = Vector2(22,9)*2}
 const HITBOXESMIGHTY = {NORMAL = Vector2(9,19)*2, ROLL = Vector2(7,14)*2, CROUCH = Vector2(9,11)*2, GLIDE = Vector2(10,10)*2, HORIZONTAL = Vector2(22,9)*2}
 const HITBOXESMSONIC = {NORMAL = Vector2(9,19)*2, ROLL = Vector2(7,14)*2, CROUCH = Vector2(9,11)*2, GLIDE = Vector2(10,10)*2, HORIZONTAL = Vector2(22,9)*2}
+const HITBOXESRUSHSONIC = {NORMAL = Vector2(9,19)*2, ROLL = Vector2(7,14)*2, CROUCH = Vector2(9,11)*2, GLIDE = Vector2(10,10)*2, HORIZONTAL = Vector2(22,9)*2}
 var currentHitbox = HITBOXESSONIC
 #Knuckles' hitboxes are the same as Sonic's.
 
@@ -224,6 +225,7 @@ var playerskins = [
 	[preload("res://Graphics/Players/PlayerAnimations/Amy.tscn"),HITBOXESAMY],
 	[preload("res://Graphics/Players/PlayerAnimations/Mighty.tscn"),HITBOXESMIGHTY],
 	[preload("res://Graphics/Players/PlayerAnimations/ModernSonic.tscn"),HITBOXESMSONIC],
+	[preload("res://Graphics/Players/PlayerAnimations/RushSonic.tscn"),HITBOXESRUSHSONIC],
 ]
 
 # Get sfx list

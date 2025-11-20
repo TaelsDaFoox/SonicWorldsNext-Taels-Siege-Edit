@@ -5,8 +5,8 @@ extends Node
 @onready var model = $Model
 @onready var ball = $ModelBall
 @onready var ballanim = $ModelBall/AnimationPlayer
-var animfrom = ["son_fw","son_walk2","son_walk5","son_walk6","com_dmg_b","com_squat","com_brake1_02","com_jump_s_01","com_wall_02","com_die_02", "undefined"]
-var animto = ["idle","walk","run","peelOut","hurt","crouch","skid","spring","push","die"]
+var animfrom = ["son_fw","son_walk2","son_walk5","son_walk6","com_dmg_b","com_squat","com_brake1_02","com_jump_s_01","com_wall_02","com_die_02","com_dive_std", "undefined"]
+var animto = ["idle","walk","run","peelOut","hurt","crouch","skid","spring","push","die","hang"]
 var spinanims = ["roll","spinDash"]
 func _process(delta: float) -> void:
 	var animCheck = animfrom[animto.find(playeranim.current_animation)]
@@ -20,3 +20,7 @@ func _process(delta: float) -> void:
 		model.visible=false
 	model.rotation.y=lerp_angle(model.rotation.y,player.direction*(PI/2),delta*10)
 	ball.rotation.y=model.rotation.y
+	if anim.current_animation=="com_dive_std":
+		model.position.y=0.25
+	else:
+		model.position.y=0.0

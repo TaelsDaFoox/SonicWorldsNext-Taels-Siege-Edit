@@ -1,9 +1,12 @@
-[gd_scene load_steps=67 format=3 uid="uid://bt2h7lkoq5yko"]
+[gd_scene load_steps=74 format=3 uid="uid://ho5aa45d0bs3"]
 
-[ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_qmjny"]
-[ext_resource type="Texture2D" uid="uid://056bnj22t6cn" path="res://Graphics/Players/ModernSonic.png" id="2_qmjny"]
-[ext_resource type="Texture2D" uid="uid://dlomjk6vm15ep" path="res://Graphics/Misc/DashDust.png" id="3_i517d"]
-[ext_resource type="Texture2D" uid="uid://dvqglf8dididc" path="res://Graphics/Items/shield_plain.png" id="4_5h66a"]
+[ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_0fhu0"]
+[ext_resource type="Texture2D" uid="uid://bjg05dq2kbi3a" path="res://Graphics/Players/empty.png" id="2_0fhu0"]
+[ext_resource type="Texture2D" uid="uid://dlomjk6vm15ep" path="res://Graphics/Misc/DashDust.png" id="3_3kio0"]
+[ext_resource type="Texture2D" uid="uid://dvqglf8dididc" path="res://Graphics/Items/shield_plain.png" id="4_05x32"]
+[ext_resource type="Script" uid="uid://7tit0i3g8olo" path="res://Models/RushModel.gd" id="5_ym7vg"]
+[ext_resource type="PackedScene" uid="uid://c13yv6dqytwuq" path="res://Models/RushAdventureSonic/son.glb" id="6_2iwa3"]
+[ext_resource type="PackedScene" uid="uid://cuq0q5va7nwpn" path="res://Models/RushAdventureSonic/son_ball.tscn" id="7_xciyk"]
 
 [sub_resource type="Animation" id="86"]
 length = 0.001
@@ -1164,32 +1167,35 @@ _data = {
 &"yRotationLookUp": SubResource("128")
 }
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_uxfea"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="AtlasTexture" id="89"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="90"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="91"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="92"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="93"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="94"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="95"]
-atlas = ExtResource("3_i517d")
+atlas = ExtResource("3_3kio0")
 region = Rect2(288, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="96"]
@@ -1279,6 +1285,16 @@ _data = {
 &"RESET": SubResource("Animation_y01gt")
 }
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i517d"]
+
+[sub_resource type="Sky" id="Sky_5h66a"]
+sky_material = SubResource("ProceduralSkyMaterial_i517d")
+
+[sub_resource type="Environment" id="Environment_uxfea"]
+sky = SubResource("Sky_5h66a")
+ambient_light_source = 2
+ambient_light_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
+
 [node name="Sonic" type="Node2D"]
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
@@ -1288,10 +1304,14 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="3Dsprite" type="Sprite2D" parent="."]
+z_index = 5
+texture = SubResource("ViewportTexture_uxfea")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
-material = ExtResource("1_qmjny")
-texture = ExtResource("2_qmjny")
+material = ExtResource("1_0fhu0")
+texture = ExtResource("2_0fhu0")
 offset = Vector2(0, -5)
 hframes = 16
 vframes = 18
@@ -1315,5 +1335,28 @@ libraries = {
 [node name="CenterReference" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.501961)
-texture = ExtResource("4_5h66a")
+texture = ExtResource("4_05x32")
 hframes = 4
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(48, 48)
+script = ExtResource("5_ym7vg")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486, 2.297)
+projection = 1
+fov = 28.327028
+size = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport"]
+environment = SubResource("Environment_uxfea")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.36667985, 0.93034726, 0, -0.93034726, 0.36667985, 0, 0, 0)
+
+[node name="Model" parent="SubViewport" instance=ExtResource("6_2iwa3")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)
+
+[node name="ModelBall" parent="SubViewport" instance=ExtResource("7_xciyk")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)

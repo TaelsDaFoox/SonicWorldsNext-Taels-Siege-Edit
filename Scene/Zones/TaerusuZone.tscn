@@ -203,6 +203,10 @@ shape = SubResource("4")
 [node name="Monitor3" parent="Platforms/Platform13/Platform" index="2" instance=ExtResource("8_p25kk")]
 position = Vector2(-24, -32)
 
+[node name="Monitor4" parent="Platforms/Platform13/Platform" index="3" instance=ExtResource("8_p25kk")]
+position = Vector2(-2326, 112)
+item = 9
+
 [node name="Platform9" parent="Platforms" instance=ExtResource("7_43dnu")]
 position = Vector2(3400, 624)
 

@@ -31,7 +31,9 @@ var playerIdles = [
 ["idle1","idle2","idle2","idle2","idle2","idle3",
 "idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
 "idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4","idle4",
-"idle5"]
+"idle5"],
+# Rush Sonic
+["idle1"]
 ]
 
 
