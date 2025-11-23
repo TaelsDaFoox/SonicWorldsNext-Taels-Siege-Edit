@@ -1,4 +1,4 @@
-[gd_scene load_steps=198 format=3 uid="uid://cioq5saowvqxj"]
+[gd_scene load_steps=199 format=3 uid="uid://cioq5saowvqxj"]
 
 [ext_resource type="Script" uid="uid://b0unbeajj3lma" path="res://Scripts/Player/Player.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://d1e4muavtnun6" path="res://Graphics/Players/PlayerAnimations/Sonic.tscn" id="2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://frqq7h80cju8" path="res://Graphics/Items/shield_insta.png" id="20"]
 [ext_resource type="Script" uid="uid://bbnbavimj617i" path="res://Scripts/Player/States/LightspeedDash.gd" id="20_0chip"]
 [ext_resource type="AudioStream" uid="uid://dg4gnjja2ce0s" path="res://Audio/SFX/Player/Shield.wav" id="21"]
+[ext_resource type="Script" uid="uid://dugjfh5c5fjau" path="res://Scripts/Player/States/AirDash.gd" id="21_wb8q1"]
 [ext_resource type="AudioStream" uid="uid://dsjw4fa8delw4" path="res://Audio/SFX/Player/Death.wav" id="22"]
 [ext_resource type="AudioStream" uid="uid://mbnafvbxgyv5" path="res://Audio/SFX/Objects/RingL.wav" id="23"]
 [ext_resource type="AudioStream" uid="uid://bp70n4gwap68w" path="res://Audio/SFX/Objects/RingR.wav" id="24"]
@@ -1283,6 +1284,9 @@ script = ExtResource("19_oumoy")
 
 [node name="LightspeedDash" type="Node" parent="States"]
 script = ExtResource("20_0chip")
+
+[node name="AirDash" type="Node" parent="States"]
+script = ExtResource("21_wb8q1")
 
 [node name="PhysicsLookUp" type="Node" parent="."]
 script = ExtResource("4")

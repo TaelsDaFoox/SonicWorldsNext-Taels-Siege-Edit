@@ -12,9 +12,13 @@ extends Node
 @export var tailModel: Node3D
 var spinanims = ["roll","spinDash"]
 func _process(delta: float) -> void:
+	print(playeranim.current_animation)
 	var animCheck = animfrom[animto.find(playeranim.current_animation)]
 	if anim.has_animation(animCheck):
-		anim.play(animCheck,0.2,playeranim.get_playing_speed())
+		if spinanims.has(playeranim.current_animation):
+			anim.play(animCheck,-1,playeranim.get_playing_speed())
+		else:
+			anim.play(animCheck,0.2,playeranim.get_playing_speed())
 		if tailModel:
 			tailModel.get_node("AnimationPlayer").play((animCheck.left(4)+"t_"+animCheck.right(animCheck.length()-4)),0.2,playeranim.get_playing_speed())
 		model.visible=true

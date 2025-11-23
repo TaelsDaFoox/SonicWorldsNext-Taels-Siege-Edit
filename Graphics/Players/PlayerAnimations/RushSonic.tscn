@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ho5aa45d0bs3"]
+[gd_scene load_steps=75 format=3 uid="uid://ho5aa45d0bs3"]
 
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_0fhu0"]
 [ext_resource type="Texture2D" uid="uid://bjg05dq2kbi3a" path="res://Graphics/Players/empty.png" id="2_0fhu0"]
@@ -1115,10 +1115,14 @@ tracks/0/keys = {
 "values": [256, 267, 266, 265, 264, 263, 262, 261, 260, 259, 258, 257]
 }
 
+[sub_resource type="Animation" id="Animation_0fhu0"]
+resource_name = "airDash"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36uej"]
 _data = {
 &"RESET": SubResource("86"),
 &"air": SubResource("108"),
+&"airDash": SubResource("Animation_0fhu0"),
 &"clingVerticalBar": SubResource("Animation_3l35s"),
 &"clingVerticalBarOffset": SubResource("Animation_l0c1k"),
 &"corkScrew": SubResource("76"),
@@ -1343,6 +1347,8 @@ hframes = 4
 transparent_bg = true
 size = Vector2i(48, 48)
 script = ExtResource("5_ym7vg")
+animfrom = ["son_fw", "son_walk2", "son_walk5", "son_walk6", "com_dmg_b", "com_squat", "com_brake1_02", "com_jump_s_01", "com_wall_02", "com_die_02", "com_dive_std", "com_jump_d", "undefined"]
+animto = ["idle", "walk", "run", "peelOut", "hurt", "crouch", "skid", "spring", "push", "die", "hang", "airDash"]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486, 2.297)

@@ -19,17 +19,15 @@ func _ready():
 	# move to the set currentPoint position before the boss starts (plus 128 pixels higher)
 	global_position = getPose[currentPoint]+Vector2(0,-1)*128
 	# run laugh function for every time the player gets hit
-	connect("hit_player",Callable(self,"do_laugh"))
+	#connect("hit_player",Callable(self,"do_laugh"))
 
 func _process(delta):
-	# flame jet (only visible when moving)
-	$EggMobile/EggmobileFlame.visible = !(velocity.x == 0 or $EggMobile/EggmobileFlame.visible)
 	
 	# flashing for the egg mobile 
-	if flashTimer > 0:
-		$EggMobile/EggFlash.visible = !$EggMobile/EggFlash.visible
-	else:
-		$EggMobile/EggFlash.visible = false
+	#if flashTimer > 0:
+	#	$EggMobile/EggFlash.visible = !$EggMobile/EggFlash.visible
+	#else:
+	#	$EggMobile/EggFlash.visible = false
 	
 	# dead animation timer (default time is 3 seconds)
 	if dead:

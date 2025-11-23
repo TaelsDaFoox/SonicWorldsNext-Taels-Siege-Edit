@@ -113,7 +113,7 @@ var airControl = true
 
 # States
 enum STATES {NORMAL, AIR, JUMP, ROLL, SPINDASH, PEELOUT, ANIMATION, HIT, DIE, CORKSCREW, JUMPCANCEL,
-SUPER, FLY, RESPAWN, HANG, GLIDE, WALLCLIMB, AMYHAMMER, WALLCLING, LIGHTSPEED}
+SUPER, FLY, RESPAWN, HANG, GLIDE, WALLCLIMB, AMYHAMMER, WALLCLING, LIGHTSPEED, AIRDASH}
 var currentState = STATES.AIR
 @onready var hitBoxOffset = {normal = $HitBox.position, crouch = $HitBox.position}
 @onready var defaultHitBoxPos = $HitBox.position
