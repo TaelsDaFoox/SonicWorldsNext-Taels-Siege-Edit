@@ -882,6 +882,10 @@ func any_action_pressed():
 	inputs[INPUTS.ACTION3] == 1):
 		return true
 	return false
+func action3_pressed():
+	if (inputs[INPUTS.ACTION3] == 1):
+		return true
+	return false
 
 func any_action_held():
 	if inputs[INPUTS.ACTION] == 2:

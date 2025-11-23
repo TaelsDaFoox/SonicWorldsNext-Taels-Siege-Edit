@@ -19,6 +19,8 @@ func _ready():
 func _process(_delta):
 	if parent.playerControl != 0 and parent.character==Global.CHARACTERS.MSONIC and parent.inputs[parent.INPUTS.ACTION2] == 1 and parent.lightSpeedArea.get_overlapping_areas():
 		parent.set_state(parent.STATES.LIGHTSPEED)
+	if parent.action3_pressed() and parent.character==Global.CHARACTERS.RUSHSONIC:
+		pass
 	if parent.playerControl != 0 and parent.any_action_pressed() and parent.character == Global.CHARACTERS.MIGHTY:
 		parent.horizontalSensor.force_raycast_update()
 		if parent.horizontalSensor.is_colliding() and !parent.ground:
