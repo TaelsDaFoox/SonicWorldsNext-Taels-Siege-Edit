@@ -51,8 +51,13 @@ func _process(delta):
 	#nefarious evil lightspeed dash code inserted at the beginning of this script >:D
 	if parent.playerControl != 0 and parent.character==Global.CHARACTERS.MSONIC and parent.inputs[parent.INPUTS.ACTION2] == 1 and parent.lightSpeedArea.get_overlapping_areas():
 		parent.set_state(parent.STATES.LIGHTSPEED)
+	if parent.action2_held() and parent.character==Global.CHARACTERS.RUSHSONIC:
+		parent.movement.x=parent.direction*800
+		parent.boosting = true
+	else:
+		parent.boosting = false
 	# jumping / rolling and more (note, you'll want to adjust the other actions if your character does something different)
-	if parent.any_action_pressed() and not parent.character==Global.CHARACTERS.MSONIC or (parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1):
+	if parent.any_action_pressed() and not (parent.character==Global.CHARACTERS.MSONIC or parent.character==Global.CHARACTERS.RUSHSONIC or parent.character==Global.CHARACTERS.RUSHBLAZE) or (parent.inputs[parent.INPUTS.ACTION] == 1 or parent.inputs[parent.INPUTS.ACTION3] == 1):
 		if (parent.movement.x == 0 and parent.inputs[parent.INPUTS.YINPUT] > 0):
 			parent.animator.play("spinDash")
 			parent.sfx[2].play()

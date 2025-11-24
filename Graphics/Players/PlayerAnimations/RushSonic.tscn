@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ho5aa45d0bs3"]
+[gd_scene load_steps=76 format=3 uid="uid://ho5aa45d0bs3"]
 
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_0fhu0"]
 [ext_resource type="Texture2D" uid="uid://bjg05dq2kbi3a" path="res://Graphics/Players/empty.png" id="2_0fhu0"]
@@ -74,6 +74,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [77]
 }
+
+[sub_resource type="Animation" id="Animation_0fhu0"]
+resource_name = "airDash"
 
 [sub_resource type="Animation" id="Animation_3l35s"]
 resource_name = "clingVerticalBar"
@@ -1115,9 +1118,6 @@ tracks/0/keys = {
 "values": [256, 267, 266, 265, 264, 263, 262, 261, 260, 259, 258, 257]
 }
 
-[sub_resource type="Animation" id="Animation_0fhu0"]
-resource_name = "airDash"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_36uej"]
 _data = {
 &"RESET": SubResource("86"),
@@ -1299,6 +1299,9 @@ sky = SubResource("Sky_5h66a")
 ambient_light_source = 2
 ambient_light_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fhu0"]
+size = Vector2(18, 38)
+
 [node name="Sonic" type="Node2D"]
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
@@ -1367,3 +1370,10 @@ transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, -0.1, 0)
 
 [node name="ModelBall" parent="SubViewport" instance=ExtResource("7_xciyk")]
 transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, -0.1, 0)
+
+[node name="BoostArea" type="Area2D" parent="."]
+collision_layer = 528384
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoostArea"]
+shape = SubResource("RectangleShape2D_0fhu0")

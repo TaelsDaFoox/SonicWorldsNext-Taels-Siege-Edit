@@ -110,6 +110,7 @@ var playerPal = preload("res://Shaders/PlayerPalette.tres")
 var horizontalLockTimer = 0
 var spriteRotation = 0
 var airControl = true
+var boosting := false
 
 # States
 enum STATES {NORMAL, AIR, JUMP, ROLL, SPINDASH, PEELOUT, ANIMATION, HIT, DIE, CORKSCREW, JUMPCANCEL,
@@ -896,6 +897,11 @@ func any_action_held():
 		return true
 	return false
 
+func action2_held():
+	if inputs[INPUTS.ACTION2] == 2:
+		return true
+	return false
+
 func any_action_held_or_pressed():
 	if inputs[INPUTS.ACTION] > 0:
 		return true
@@ -1017,7 +1023,7 @@ func set_shield(setShieldID):
 func hit_player(damagePoint = global_position, damageType = 0, soundID = 6):
 	if damageType != 0 and shield == damageType+1:
 		return false
-	if (currentState != STATES.HIT and invTime <= 0 and supTime <= 0 and (shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled or character != Global.CHARACTERS.SONIC)):
+	if (currentState != STATES.HIT and invTime <= 0 and supTime <= 0 and (shieldSprite.get_node("InstaShieldHitbox/HitBox").disabled or character != Global.CHARACTERS.SONIC) and boosting==false):
 		movement.x = sign(global_position.x-damagePoint.x)*2*60
 		movement.y = -4*60
 		if (movement.x == 0):
