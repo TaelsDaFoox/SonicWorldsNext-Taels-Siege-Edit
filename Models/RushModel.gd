@@ -10,8 +10,18 @@ extends Node
 @export var blazeSpin := false
 @export var spinAnim := "son_screw"
 @export var tailModel: Node3D
+@onready var boostAura = $"../BoostAura"
 var spinanims = ["roll","spinDash"]
 func _process(delta: float) -> void:
+	if player.boosting:
+		boostAura.visible = true
+		boostAura.play("BoostLoop")
+	else:
+		boostAura.visible = false
+	if player.direction == 1:
+		boostAura.flip_h = false
+	if player.direction == -1:
+		boostAura.flip_h = true
 	print(playeranim.current_animation)
 	var animCheck = animfrom[animto.find(playeranim.current_animation)]
 	if anim.has_animation(animCheck):

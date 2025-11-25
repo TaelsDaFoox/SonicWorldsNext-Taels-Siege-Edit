@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ho5aa45d0bs3"]
+[gd_scene load_steps=82 format=3 uid="uid://ho5aa45d0bs3"]
 
 [ext_resource type="Material" uid="uid://bveqi5m5ihsgj" path="res://Shaders/PlayerPalette.tres" id="1_0fhu0"]
 [ext_resource type="Texture2D" uid="uid://bjg05dq2kbi3a" path="res://Graphics/Players/empty.png" id="2_0fhu0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://7tit0i3g8olo" path="res://Models/RushModel.gd" id="5_ym7vg"]
 [ext_resource type="PackedScene" uid="uid://c13yv6dqytwuq" path="res://Models/RushAdventureSonic/son.glb" id="6_2iwa3"]
 [ext_resource type="PackedScene" uid="uid://cuq0q5va7nwpn" path="res://Models/RushAdventureSonic/son_ball.tscn" id="7_xciyk"]
+[ext_resource type="Texture2D" uid="uid://bpqmf30ghn5l0" path="res://Graphics/Items/sonicBoost.png" id="8_hyo25"]
 
 [sub_resource type="Animation" id="86"]
 length = 0.001
@@ -1302,6 +1303,47 @@ ambient_light_color = Color(0.70796657, 0.7079665, 0.7079665, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fhu0"]
 size = Vector2(18, 38)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kio0"]
+atlas = ExtResource("8_hyo25")
+region = Rect2(0, 50, 61, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05x32"]
+atlas = ExtResource("8_hyo25")
+region = Rect2(61, 50, 61, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym7vg"]
+atlas = ExtResource("8_hyo25")
+region = Rect2(0, 0, 61, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iwa3"]
+atlas = ExtResource("8_hyo25")
+region = Rect2(61, 0, 61, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xciyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kio0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05x32")
+}],
+"loop": true,
+"name": &"BoostLoop",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym7vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iwa3")
+}],
+"loop": false,
+"name": &"BoostStart",
+"speed": 30.0
+}]
+
 [node name="Sonic" type="Node2D"]
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
@@ -1377,3 +1419,10 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoostArea"]
 shape = SubResource("RectangleShape2D_0fhu0")
+
+[node name="BoostAura" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.76862746)
+z_index = 5
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_xciyk")
+animation = &"BoostStart"

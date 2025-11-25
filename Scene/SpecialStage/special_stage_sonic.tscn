@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2mus3j3qbdur"]
+
+[ext_resource type="PackedScene" uid="uid://c13yv6dqytwuq" path="res://Models/RushAdventureSonic/son.glb" id="1_0r8fk"]
+
+[node name="SpecialStageSonic" type="CharacterBody3D"]
+
+[node name="son" parent="." instance=ExtResource("1_0r8fk")]
+transform = Transform3D(0.107, 0, 0, 0, 0.107, 0, 0, 0, 0.107, 0, 0, 0)

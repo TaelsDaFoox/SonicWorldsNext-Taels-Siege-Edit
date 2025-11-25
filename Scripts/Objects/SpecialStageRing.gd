@@ -33,7 +33,7 @@ func _process(delta):
 			Global.nodeMemory.append(get_path())
 			
 			# fade to new scene
-			Global.main.change_scene_to_file(load("res://Scene/SpecialStage/SpecialStageResult.tscn"),"WhiteOut","WhiteOut",1,true,false)
+			Global.main.change_scene_to_file(load("res://Scene/SpecialStage/special_stage_3d.tscn"),"WhiteOut","WhiteOut",1,true,false)
 			# wait for scene to fade
 			await Global.main.scene_faded
 			
